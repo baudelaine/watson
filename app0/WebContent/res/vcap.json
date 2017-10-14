@@ -1,0 +1,85 @@
+{
+  "discovery": [
+   {
+    "credentials": {
+     "password": "u6hfKzSGPMpd",
+     "url": "https://gateway-fra.watsonplatform.net/discovery/api",
+     "username": "9c3e22ed-effd-4643-82ba-beac1b499f92"
+    },
+    "label": "discovery",
+    "name": "dsc0",
+    "plan": "lite",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "watson",
+     "ibm_created",
+     "ibm_dedicated_public",
+     "lite"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "natural-language-understanding": [
+   {
+    "credentials": {
+     "password": "Z8NBhCAbv4XV",
+     "url": "https://gateway-fra.watsonplatform.net/natural-language-understanding/api",
+     "username": "f1a257b5-bc19-46ff-9ee9-70b236a3239c"
+    },
+    "label": "natural-language-understanding",
+    "name": "nlu0",
+    "plan": "free",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "watson",
+     "ibm_created",
+     "ibm_dedicated_public",
+     "lite"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "tone_analyzer": [
+   {
+    "credentials": {
+     "password": "sHaEtn4Okffe",
+     "url": "https://gateway-fra.watsonplatform.net/tone-analyzer/api",
+     "username": "495fa903-6c22-4805-85a6-425c644eb5d9"
+    },
+    "label": "tone_analyzer",
+    "name": "ta0",
+    "plan": "standard",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "watson",
+     "ibm_created",
+     "ibm_dedicated_public",
+     "lite"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "watson_vision_combined": [
+   {
+    "credentials": {
+     "api_key": "c837b42bc182da29aa29e2647752f88492089ea2",
+     "note": "This is your previous free key. If you want a different one, please wait 24 hours after unbinding the key and try again.",
+     "url": "https://gateway-a.watsonplatform.net/visual-recognition/api"
+    },
+    "label": "watson_vision_combined",
+    "name": "vr0",
+    "plan": "free",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "watson",
+     "ibm_created",
+     "ibm_dedicated_public"
+    ],
+    "volume_mounts": []
+   }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+    "environments": [
+      {
+        "environmentId": "system",
+        "name": "Watson System Environment",
+        "description": "Shared system data sources",
+        "created": null,
+        "updated": null,
+        "status": null,
+        "readOnly": true,
+        "indexCapacity": null
+      },
+      {
+        "environmentId": "1f42ee3f-f965-4016-8507-f6ec9e0304ee",
+        "name": "env0",
+        "description": "",
+        "created": 1507468289768,
+        "updated": 1507468289768,
+        "status": null,
+        "readOnly": false,
+        "indexCapacity": null
+      }
+    ]
+}

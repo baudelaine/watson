@@ -1,0 +1,20 @@
+Display usage:
+
+curl http://localhost/app0/Analyze | jq .
+
+{
+  "WARNING_USAGE": "!!! Remove backslash from example before submitting !!!",
+  "UPLOAD_EXAMPLE": "curl --cookie cookies --cookie-jar cookies -X POST -F 'parms={"text": "text", "integer": 1, "boolean": false}' -F 'mails=@WebContent/res/mails/mails.json' http://localhost/app0/Analyze",
+  "ANALYZE_EXAMPLE": "curl --cookie cookies --cookie-jar cookies -X POST -d '{"text": "text", "integer": 1, "boolean": false}' http://localhost/app0/Analyze",
+  "UPLOAD_USAGE": "curl --cookie cookies --cookie-jar cookies -X POST -F 'parms=<parameters list in json format>' -F 'mails=<mails json file>' http://<hostname>:<port>/app0/Analyze",
+  "ANALYZE_USAGE": "curl --cookie cookies --cookie-jar cookies -X POST -d '<parameters list in json format>' http://<hostname>:<port>/app0/Analyze",
+  "FROM": "AnalyzeServlet"
+}
+
+Upload documents in Discovery, load and store mails in application session:
+
+curl --cookie cookies --cookie-jar cookies -X POST -F 'parms={"text": "text", "integer": 1, "boolean": false}' -F 'mails=@WebContent/res/mails/mails.json' http://localhost/app0/Analyze | jq .
+
+Submit analysis and store the result in a file:
+
+curl --cookie cookies --cookie-jar cookies -X POST -d '{"text": "text", "integer": 1, "boolean": false}' http://localhost/app0/Analyze | tee analysis.response.json

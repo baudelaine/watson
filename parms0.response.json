@@ -1,0 +1,701 @@
+{
+  "usage": {
+    "text_units": 1,
+    "text_characters": 4388,
+    "features": 5
+  },
+  "sentiment": {
+    "document": {
+      "score": 0,
+      "label": "neutral"
+    }
+  },
+  "relations": [
+    {
+      "type": "employedBy",
+      "sentence": "10 octobre 2017 : Nazca, Space Alligators et Jet Banana, vainqueurs du tremplin Music on Stage organisé par Star's Music en partenariat avec Audiofanzine, donnent un concert gratuit au Divan du Monde de Paris.",
+      "score": 0.525596,
+      "arguments": [
+        {
+          "text": "Jet Banana",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Jet Banana"
+            }
+          ]
+        },
+        {
+          "text": "Space Alligators",
+          "entities": [
+            {
+              "type": "Organization",
+              "text": "Space Alligators",
+              "disambiguation": {
+                "subtype": [
+                  "Commercial"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "agentOf",
+      "sentence": "La majeure partie des possesseurs de chat vont alors être poussés au suicide par leur compagnon, tandis que les propriétaires de poissons vont pour certains entrer dans un coma profond après quelques heures d'une conversation qui tourne en rond.",
+      "score": 0.79492,
+      "arguments": [
+        {
+          "text": "au",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Dans la newsletter d’Audiofanzine"
+            }
+          ]
+        },
+        {
+          "text": "suicide",
+          "entities": [
+            {
+              "type": "EventViolence",
+              "text": "suicide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "participantIn",
+      "sentence": "La majeure partie des possesseurs de chat vont alors être poussés au suicide par leur compagnon, tandis que les propriétaires de poissons vont pour certains entrer dans un coma profond après quelques heures d'une conversation qui tourne en rond.",
+      "score": 0.926428,
+      "arguments": [
+        {
+          "text": "d’une",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "d’une paire"
+            }
+          ]
+        },
+        {
+          "text": "conversation",
+          "entities": [
+            {
+              "type": "EventMeeting",
+              "text": "conversation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ownerOf",
+      "sentence": "14 mars 2019 : Alors que nos plus brillants cerveaux ne dépassent plus guère les 60 de QI et qu'on observe le même phénomène un peu partout sur la planète, Samsung présente des écouteurs permettant de communiquer avec l'ensemble du règne animal.",
+      "score": 0.622782,
+      "arguments": [
+        {
+          "text": "l’ensemble du règne",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "l’ensemble du règne"
+            }
+          ]
+        },
+        {
+          "text": "animal",
+          "entities": [
+            {
+              "type": "Animal",
+              "text": "animal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "partOfMany",
+      "sentence": "19 juin 2134 : Après que le premier mariage mixte entre un mulot et un pied de betterave a fait polémique, l'adoption d'un humain de compagnie par le couple est malgré tout autorisée par l'Assemblée Végétanimale qui siège au Jardin des Plantes.",
+      "score": 0.431869,
+      "arguments": [
+        {
+          "text": "le",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Les scientifiques"
+            }
+          ]
+        },
+        {
+          "text": "couple",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "couple"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "employedBy",
+      "sentence": "10 octobre 2017 : Nazca, Space Alligators et Jet Banana, vainqueurs du tremplin Music on Stage organisé par Star's Music en partenariat avec Audiofanzine, donnent un concert gratuit au Divan du Monde de Paris.",
+      "score": 0.521816,
+      "arguments": [
+        {
+          "text": "Stage organisé",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Stage organisé"
+            }
+          ]
+        },
+        {
+          "text": "Star",
+          "entities": [
+            {
+              "type": "Organization",
+              "text": "Star",
+              "disambiguation": {
+                "subtype": [
+                  "Commercial"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "partOf",
+      "sentence": "10 octobre 2017 : Nazca, Space Alligators et Jet Banana, vainqueurs du tremplin Music on Stage organisé par Star's Music en partenariat avec Audiofanzine, donnent un concert gratuit au Divan du Monde de Paris.",
+      "score": 0.724728,
+      "arguments": [
+        {
+          "text": "Music",
+          "entities": [
+            {
+              "type": "Organization",
+              "text": "Music",
+              "disambiguation": {
+                "subtype": [
+                  "Commercial"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "text": "Star",
+          "entities": [
+            {
+              "type": "Organization",
+              "text": "Star",
+              "disambiguation": {
+                "subtype": [
+                  "Commercial"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "residesIn",
+      "sentence": "10 octobre 2017 : Nazca, Space Alligators et Jet Banana, vainqueurs du tremplin Music on Stage organisé par Star's Music en partenariat avec Audiofanzine, donnent un concert gratuit au Divan du Monde de Paris.",
+      "score": 0.73337,
+      "arguments": [
+        {
+          "text": "Divan du Monde",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Divan du Monde"
+            }
+          ]
+        },
+        {
+          "text": "Paris",
+          "entities": [
+            {
+              "type": "GeopoliticalEntity",
+              "text": "Paris"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "agentOf",
+      "sentence": "Dans la foule, un geek fait le malin avec ses Pixel Buds et choisit d'écouter tout le concert traduit en portugais.",
+      "score": 0.40199,
+      "arguments": [
+        {
+          "text": "d’",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "d’un monde livré à Google Trad"
+            }
+          ]
+        },
+        {
+          "text": "concert",
+          "entities": [
+            {
+              "type": "EventPerformance",
+              "text": "concert"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "residesIn",
+      "sentence": "La même chose ne tarde pas à se produire avec les auditeurs de la plupart des radios et les fans d'AC/DC, Gorillaz, Psy ou Cascada, causant des dommages intellectuels graves chez les plus jeunes et les plus fragiles.",
+      "score": 0.802788,
+      "arguments": [
+        {
+          "text": "même",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "même phénomène"
+            }
+          ]
+        },
+        {
+          "text": "La",
+          "entities": [
+            {
+              "type": "GeopoliticalEntity",
+              "text": "La Tour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "partOfMany",
+      "sentence": "La même chose ne tarde pas à se produire avec les auditeurs de la plupart des radios et les fans d'AC/DC, Gorillaz, Psy ou Cascada, causant des dommages intellectuels graves chez les plus jeunes et les plus fragiles.",
+      "score": 0.638066,
+      "arguments": [
+        {
+          "text": "d’AC/DC",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "d’un monde livré à Google Trad"
+            }
+          ]
+        },
+        {
+          "text": "fans",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "fans"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "partOfMany",
+      "sentence": "2 février 2018 : Un nouveau bug de Google Trad qui confond le ʻnine' anglais et le ʻnein' allemand conduit une douzaine de traders utilisateurs des Pixel Bud à faire perdre près de 80 milliards d'euros aux principales entreprises du CAC40.",
+      "score": 0.640086,
+      "arguments": [
+        {
+          "text": "Pixel Bud à faire perdre près",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Pixel Bud à faire perdre près"
+            }
+          ]
+        },
+        {
+          "text": "traders",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "traders"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "partOfMany",
+      "sentence": "2 février 2018 : Un nouveau bug de Google Trad qui confond le ʻnine' anglais et le ʻnein' allemand conduit une douzaine de traders utilisateurs des Pixel Bud à faire perdre près de 80 milliards d'euros aux principales entreprises du CAC40.",
+      "score": 0.82741,
+      "arguments": [
+        {
+          "text": "du CAC40",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "du CAC40"
+            }
+          ]
+        },
+        {
+          "text": "traders",
+          "entities": [
+            {
+              "type": "Person",
+              "text": "traders"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "language": "fr",
+  "keywords": [
+    {
+      "text": "pixel buds",
+      "relevance": 0.996882
+    },
+    {
+      "text": "Google Trad",
+      "relevance": 0.846482
+    },
+    {
+      "text": "Pixels Buds",
+      "relevance": 0.707765
+    },
+    {
+      "text": "Les Pixel Buds",
+      "relevance": 0.593235
+    },
+    {
+      "text": "légendaires korg dw-8000",
+      "relevance": 0.525463
+    },
+    {
+      "text": "Hyper Buds",
+      "relevance": 0.519945
+    },
+    {
+      "text": "conséquences désastreuses d’un",
+      "relevance": 0.519701
+    },
+    {
+      "text": "l’excellent roland boutique",
+      "relevance": 0.515365
+    },
+    {
+      "text": "non-sens extrêmement instable",
+      "relevance": 0.512689
+    },
+    {
+      "text": "dommages intellectuels graves",
+      "relevance": 0.510085
+    },
+    {
+      "text": "Ze AudioTeam »",
+      "relevance": 0.505158
+    },
+    {
+      "text": "accompagné d’une paire",
+      "relevance": 0.502901
+    },
+    {
+      "text": "Les scientifiques découvrent",
+      "relevance": 0.500028
+    },
+    {
+      "text": "l’adoption d’un humain",
+      "relevance": 0.499809
+    },
+    {
+      "text": "Mark Zuckerberg convainc",
+      "relevance": 0.499768
+    },
+    {
+      "text": "vieille phrase humaine",
+      "relevance": 0.497454
+    },
+    {
+      "text": "heures d’une conversation",
+      "relevance": 0.494392
+    },
+    {
+      "text": "Le pays sombre",
+      "relevance": 0.493855
+    },
+    {
+      "text": "Un nouveau bug",
+      "relevance": 0.492812
+    },
+    {
+      "text": "principaux animaux domestiques",
+      "relevance": 0.490112
+    },
+    {
+      "text": "La majeure partie",
+      "relevance": 0.486816
+    },
+    {
+      "text": "Armageddon »",
+      "relevance": 0.475492
+    },
+    {
+      "text": "Emmanuel Macron",
+      "relevance": 0.470513
+    },
+    {
+      "text": "court encadré",
+      "relevance": 0.469294
+    },
+    {
+      "text": "Patrick Sebastien",
+      "relevance": 0.465942
+    },
+    {
+      "text": "supplément sciences",
+      "relevance": 0.465314
+    },
+    {
+      "text": "glorieuse histoire",
+      "relevance": 0.465219
+    },
+    {
+      "text": "foam man",
+      "relevance": 0.46469
+    },
+    {
+      "text": "Space Alligators",
+      "relevance": 0.464533
+    },
+    {
+      "text": "Fraîchement sortis",
+      "relevance": 0.464524
+    },
+    {
+      "text": "brillants cerveaux",
+      "relevance": 0.464475
+    },
+    {
+      "text": "temps réel",
+      "relevance": 0.464164
+    },
+    {
+      "text": "grande déception",
+      "relevance": 0.46396
+    },
+    {
+      "text": "newsletter d’Audiofanzine",
+      "relevance": 0.463404
+    },
+    {
+      "text": "auteurs francophones",
+      "relevance": 0.463129
+    },
+    {
+      "text": "population française",
+      "relevance": 0.462808
+    },
+    {
+      "text": "Jet Banana",
+      "relevance": 0.462469
+    },
+    {
+      "text": "tremplin music",
+      "relevance": 0.462112
+    },
+    {
+      "text": "chansons diffusées",
+      "relevance": 0.462003
+    },
+    {
+      "text": "banques françaises",
+      "relevance": 0.461281
+    },
+    {
+      "text": "milliards d’euros",
+      "relevance": 0.460186
+    },
+    {
+      "text": "coma profond",
+      "relevance": 0.458469
+    },
+    {
+      "text": "sens qu’elle",
+      "relevance": 0.458082
+    },
+    {
+      "text": "réduction utilisables",
+      "relevance": 0.457461
+    },
+    {
+      "text": "l’assemblée végétanimale",
+      "relevance": 0.457315
+    },
+    {
+      "text": "recharge solaire",
+      "relevance": 0.456483
+    },
+    {
+      "text": "l’app store",
+      "relevance": 0.456319
+    },
+    {
+      "text": "concert gratuit",
+      "relevance": 0.455871
+    },
+    {
+      "text": "traders utilisateurs",
+      "relevance": 0.455166
+    },
+    {
+      "text": "chaos économique",
+      "relevance": 0.455069
+    }
+  ],
+  "entities": [
+    {
+      "type": "Company",
+      "text": "Google",
+      "relevance": 0.954934,
+      "count": 4
+    },
+    {
+      "type": "Person",
+      "text": "Roland Boutique",
+      "relevance": 0.770146,
+      "count": 1
+    },
+    {
+      "type": "Organization",
+      "text": "ministère de la santé",
+      "relevance": 0.604313,
+      "count": 1
+    },
+    {
+      "type": "Person",
+      "text": "Emmanuel Macron",
+      "relevance": 0.601024,
+      "count": 1
+    },
+    {
+      "type": "Person",
+      "text": "Patrick Sebastien",
+      "relevance": 0.579753,
+      "count": 1
+    },
+    {
+      "type": "Location",
+      "text": "France",
+      "relevance": 0.38374,
+      "disambiguation": {
+        "subtype": [
+          "Country"
+        ]
+      },
+      "count": 2
+    },
+    {
+      "type": "Person",
+      "text": "Mark Zuckerberg",
+      "relevance": 0.379971,
+      "count": 1
+    },
+    {
+      "type": "Person",
+      "text": "Carlos",
+      "relevance": 0.347071,
+      "count": 1
+    },
+    {
+      "type": "Person",
+      "text": "Mark ponctue",
+      "relevance": 0.3134,
+      "count": 1
+    },
+    {
+      "type": "Person",
+      "text": "Beyonce",
+      "relevance": 0.268689,
+      "count": 1
+    },
+    {
+      "type": "Location",
+      "text": "Paris",
+      "relevance": 0.243256,
+      "disambiguation": {
+        "subtype": [
+          "City"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "type": "Company",
+      "text": "Amazon",
+      "relevance": 0.191013,
+      "count": 1
+    },
+    {
+      "type": "Facility",
+      "text": "Store",
+      "relevance": 0.173048,
+      "count": 1
+    },
+    {
+      "type": "Company",
+      "text": "Apple",
+      "relevance": 0.143591,
+      "count": 1
+    },
+    {
+      "type": "Company",
+      "text": "Huawei",
+      "relevance": 0.142359,
+      "count": 1
+    },
+    {
+      "type": "Company",
+      "text": "Facebook",
+      "relevance": 0.137474,
+      "count": 1
+    },
+    {
+      "type": "HealthCondition",
+      "text": "coma",
+      "relevance": 0.124757,
+      "count": 1
+    },
+    {
+      "type": "Company",
+      "text": "Samsung",
+      "relevance": 0.0912112,
+      "count": 1
+    }
+  ],
+  "categories": [
+    {
+      "score": 0.373244,
+      "label": "/sports/climbing"
+    },
+    {
+      "score": 0.251197,
+      "label": "/science/social science/linguistics/translation"
+    },
+    {
+      "score": 0.195993,
+      "label": "/travel/tourist destinations/france"
+    }
+  ],
+  "warnings": [
+    "concepts: unsupported text language: fr",
+    "emotion: unsupported text language: fr"
+  ]
+}

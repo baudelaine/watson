@@ -1,0 +1,19 @@
+{
+  "usage": {
+    "text_units": 1,
+    "text_characters": 1338,
+    "features": 2
+  },
+  "language": "fr",
+  "keywords": [
+    {
+      "text": "☐  Clim manuelle ☐  ESP ☐  Peinture Métal",
+      "relevance": 0.92533
+    },
+    {
+      "text": "☑  Radio CD ☐  Reg de vitesse ☑  Vitres AV",
+      "relevance": 0.912111
+    }
+  ],
+  "entities": []
+}

@@ -1,0 +1,15 @@
+{
+  "text": "\"no title\\n\\n8/31/2016 Votre attestation de cote L'argus\\n\\nhttp://www.largus.fr/v4/index.cfm?event=particulier.service.coteResultat.dspAttestation&PID=08223334201631&coteAffiche=1 1/1\\n\\nATTESTATION ARGUS((R))\\n\\nEditée le 31 août 2016\\n\\nOpel ­ Corsa ­ 1.0 Twinport Enjoy 5p 1ère mise en circulation : 28/07/2005 Kilométrage : 146 000 km\\n\\nNuméro de transaction : 08223334201631\\n\\nRésultat de la Cote Argus\\n\\n((R))\\n\\nOptions\\n\\nCote Argus Personnalisée((R)) (TTC)\\n\\n1 193 €\\n\\nCours­Moyen Argus((R))\\n\\n au 25/08/2016\\n\\n+ 1 150 €\\n\\n1ère mise en circulation\\n\\n ­ 28/07/2005\\n\\n0 €\\n\\n0 €\\n\\nKilométrage\\n\\n ­ 146 000 km\\n\\n+ 43 €\\n\\nEquipements attendus dans la catégorie du véhicule\\n\\n☐  Bluetooth ☐  Clim manuelle ☐  ESP ☐  Peinture Métal ☑  Radio CD ☐  Reg de vitesse ☑  Vitres AV electriques\\n\\nIndice de Revente Argus\\n\\n((R))\\n\\nEditée par :\\n\\nS.N.E.E.P. S.A.S. 11­13 rue des Petits Hôtels 75 010 Paris\\n\\nPour imprimer, utilisez la fonction \\\"Imprimer\\\" de votre navigateur\\n\\nPour les questions concernant la cote :  relationclientcote@largus.fr \\n\\nLa direction des valorisations\\n\\nEdité par la Société Nouvelle d'Editions et de Public ité S.N.E.E.P. Société par Actions Simplifiées au capital de 450.000 euros  RCS Paris B 572 214 591 ­ siret 572 214 591 000 24 ­ APE 5814Z ­ N° intracommunautaire FR 59 572 214 591\"",
+  "features": {
+    "entities": {
+      "emotion": true,
+      "sentiment": true,
+      "limit": 2
+    },
+    "keywords": {
+      "emotion": true,
+      "sentiment": true,
+      "limit": 2
+    }
+  }
+}

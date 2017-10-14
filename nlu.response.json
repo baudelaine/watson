@@ -1,0 +1,109 @@
+{
+  "usage": {
+    "text_units": 1,
+    "text_characters": 140,
+    "features": 2
+  },
+  "language": "en",
+  "keywords": [
+    {
+      "text": "American multinational technology",
+      "relevance": 0.993518
+    },
+    {
+      "text": "New York",
+      "relevance": 0.613816
+    },
+    {
+      "text": "United States",
+      "relevance": 0.607578
+    },
+    {
+      "text": "Armonk",
+      "relevance": 0.549402
+    },
+    {
+      "text": "IBM",
+      "relevance": 0.257189
+    },
+    {
+      "text": "company",
+      "relevance": 0.255555
+    },
+    {
+      "text": "operations",
+      "relevance": 0.252287
+    },
+    {
+      "text": "countries",
+      "relevance": 0.251197
+    }
+  ],
+  "entities": [
+    {
+      "type": "Company",
+      "text": "IBM",
+      "relevance": 0.33,
+      "disambiguation": {
+        "subtype": [
+          "SoftwareLicense",
+          "OperatingSystemDeveloper",
+          "ProcessorManufacturer",
+          "SoftwareDeveloper",
+          "CompanyFounder",
+          "ProgrammingLanguageDesigner",
+          "ProgrammingLanguageDeveloper"
+        ],
+        "name": "IBM",
+        "dbpedia_resource": "http://dbpedia.org/resource/IBM"
+      },
+      "count": 1
+    },
+    {
+      "type": "Location",
+      "text": "Armonk",
+      "relevance": 0.33,
+      "disambiguation": {
+        "subtype": [
+          "City"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "type": "Location",
+      "text": "New York",
+      "relevance": 0.33,
+      "disambiguation": {
+        "subtype": [
+          "PoliticalDistrict",
+          "GovernmentalJurisdiction",
+          "PlaceWithNeighborhoods",
+          "WineRegion",
+          "FilmScreeningVenue",
+          "City"
+        ],
+        "name": "New York City",
+        "dbpedia_resource": "http://dbpedia.org/resource/New_York_City"
+      },
+      "count": 1
+    },
+    {
+      "type": "Location",
+      "text": "United States",
+      "relevance": 0.33,
+      "disambiguation": {
+        "subtype": [
+          "Region",
+          "AdministrativeDivision",
+          "GovernmentalJurisdiction",
+          "FilmEditor",
+          "Country"
+        ],
+        "name": "United States",
+        "dbpedia_resource": "http://dbpedia.org/resource/United_States"
+      },
+      "count": 1
+    }
+  ]
+}

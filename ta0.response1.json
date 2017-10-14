@@ -1,0 +1,372 @@
+{
+  "document_tone": {
+    "tones": []
+  },
+  "sentences_tone": [
+    {
+      "sentence_id": 0,
+      "text": "\"no title",
+      "tones": []
+    },
+    {
+      "sentence_id": 1,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 2,
+      "text": "8/31/2016 Votre attestation de cote L'argus",
+      "tones": [
+        {
+          "score": 0.762356,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 3,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 4,
+      "text": "http://www.largus.fr/v4/index.cfm?event=particulier.service.coteResultat.dspAttestation&PID=08223334201631&coteAffiche=1",
+      "tones": []
+    },
+    {
+      "sentence_id": 5,
+      "text": "1/1",
+      "tones": []
+    },
+    {
+      "sentence_id": 6,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 7,
+      "text": "ATTESTATION ARGUS((R))",
+      "tones": []
+    },
+    {
+      "sentence_id": 8,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 9,
+      "text": "Editée le 31 août 2016",
+      "tones": []
+    },
+    {
+      "sentence_id": 10,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 11,
+      "text": "Opel ­ Corsa ­ 1.0 Twinport Enjoy 5p 1ère mise en circulation : 28/07/2005 Kilométrage : 146 000 km",
+      "tones": []
+    },
+    {
+      "sentence_id": 12,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 13,
+      "text": "Numéro de transaction : 08223334201631",
+      "tones": []
+    },
+    {
+      "sentence_id": 14,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 15,
+      "text": "Résultat de la Cote Argus",
+      "tones": [
+        {
+          "score": 0.882284,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 16,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 17,
+      "text": "((R))",
+      "tones": []
+    },
+    {
+      "sentence_id": 18,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 19,
+      "text": "Options",
+      "tones": []
+    },
+    {
+      "sentence_id": 20,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 21,
+      "text": "Cote Argus Personnalisée((R)) (TTC)",
+      "tones": []
+    },
+    {
+      "sentence_id": 22,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 23,
+      "text": "1 193 €",
+      "tones": []
+    },
+    {
+      "sentence_id": 24,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 25,
+      "text": "Cours­Moyen Argus((R))",
+      "tones": []
+    },
+    {
+      "sentence_id": 26,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 27,
+      "text": " au 25/08/2016",
+      "tones": []
+    },
+    {
+      "sentence_id": 28,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 29,
+      "text": "+ 1 150 €",
+      "tones": []
+    },
+    {
+      "sentence_id": 30,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 31,
+      "text": "1ère mise en circulation",
+      "tones": []
+    },
+    {
+      "sentence_id": 32,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 33,
+      "text": " ­ 28/07/2005",
+      "tones": []
+    },
+    {
+      "sentence_id": 34,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 35,
+      "text": "0 €",
+      "tones": []
+    },
+    {
+      "sentence_id": 36,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 37,
+      "text": "0 €",
+      "tones": []
+    },
+    {
+      "sentence_id": 38,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 39,
+      "text": "Kilométrage",
+      "tones": []
+    },
+    {
+      "sentence_id": 40,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 41,
+      "text": " ­ 146 000 km",
+      "tones": []
+    },
+    {
+      "sentence_id": 42,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 43,
+      "text": "+ 43 €",
+      "tones": []
+    },
+    {
+      "sentence_id": 44,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 45,
+      "text": "Equipements attendus dans la catégorie du véhicule",
+      "tones": []
+    },
+    {
+      "sentence_id": 46,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 47,
+      "text": "☐  Bluetooth ☐  Clim manuelle ☐  ESP ☐  Peinture Métal ☑  Radio CD ☐  Reg de vitesse ☑  Vitres AV electriques",
+      "tones": []
+    },
+    {
+      "sentence_id": 48,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 49,
+      "text": "Indice de Revente Argus",
+      "tones": [
+        {
+          "score": 0.515755,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        },
+        {
+          "score": 0.920855,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 50,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 51,
+      "text": "((R))",
+      "tones": []
+    },
+    {
+      "sentence_id": 52,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 53,
+      "text": "Editée par :",
+      "tones": []
+    },
+    {
+      "sentence_id": 54,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 55,
+      "text": "S.N.E.E.P. S.A.S. 11­13 rue des Petits Hôtels 75 010 Paris",
+      "tones": []
+    },
+    {
+      "sentence_id": 56,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 57,
+      "text": "Pour imprimer, utilisez la fonction \\\"Imprimer\\\" de votre navigateur",
+      "tones": []
+    },
+    {
+      "sentence_id": 58,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 59,
+      "text": "Pour les questions concernant la cote :  relationclientcote@largus.fr",
+      "tones": [
+        {
+          "score": 0.955445,
+          "tone_id": "analytical",
+          "tone_name": "Analytical"
+        }
+      ]
+    },
+    {
+      "sentence_id": 60,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 61,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 62,
+      "text": "La direction des valorisations",
+      "tones": [
+        {
+          "score": 0.544227,
+          "tone_id": "joy",
+          "tone_name": "Joy"
+        }
+      ]
+    },
+    {
+      "sentence_id": 63,
+      "text": "",
+      "tones": []
+    },
+    {
+      "sentence_id": 64,
+      "text": "Edité par la Société Nouvelle d'Editions et de Public ité S.N.E.E.P. Société par Actions Simplifiées au capital de 450.000",
+      "tones": []
+    },
+    {
+      "sentence_id": 65,
+      "text": "euros  RCS Paris B 572 214 591 ­ siret 572 214 591 000 24 ­ APE 5814Z ­ N° intracommunautaire FR 59 572 214 591\"",
+      "tones": []
+    }
+  ]
+}

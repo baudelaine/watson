@@ -1,0 +1,60 @@
+{
+    "custom_classes": 0,
+    "images": [
+        {
+            "classifiers": [
+                {
+                    "classes": [
+                        {
+                            "class": "tiger",
+                            "score": 0.907,
+                            "type_hierarchy": "/animal/mammal/carnivore/feline/big cat/tiger"
+                        },
+                        {
+                            "class": "big cat",
+                            "score": 0.981
+                        },
+                        {
+                            "class": "feline",
+                            "score": 0.982
+                        },
+                        {
+                            "class": "carnivore",
+                            "score": 0.983
+                        },
+                        {
+                            "class": "mammal",
+                            "score": 0.984
+                        },
+                        {
+                            "class": "animal",
+                            "score": 0.988
+                        },
+                        {
+                            "class": "Bengal tiger",
+                            "score": 0.587,
+                            "type_hierarchy": "/animal/mammal/carnivore/feline/big cat/Bengal tiger"
+                        },
+                        {
+                            "class": "tigress",
+                            "score": 0.5,
+                            "type_hierarchy": "/animal/mammal/carnivore/feline/big cat/tigress"
+                        },
+                        {
+                            "class": "pale yellow color",
+                            "score": 0.809
+                        },
+                        {
+                            "class": "light brown color",
+                            "score": 0.604
+                        }
+                    ],
+                    "classifier_id": "default",
+                    "name": "default"
+                }
+            ],
+            "image": "tigre0.jpg"
+        }
+    ],
+    "images_processed": 1
+}

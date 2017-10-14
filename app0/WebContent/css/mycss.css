@@ -1,0 +1,104 @@
+@CHARSET "UTF-8";
+
+#divLoading
+{
+display : none;
+}
+#divLoading.show
+{
+display : block;
+position : fixed;
+z-index: 100;
+//background-image : url('http://loadinggif.com/images/image-selection/3.gif');
+background-image : url("spinner1.gif");
+background-color:#FFFFFF;
+opacity : 0.4;
+background-repeat : no-repeat;
+background-position : center;
+left : 0;
+bottom : 0;
+right : 0;
+top : 0;
+}
+#loadinggif.show
+{
+left : 50%;
+top : 50%;
+position : absolute;
+z-index : 101;
+width : 32px;
+height : 32px;
+margin-left : -16px;
+margin-top : -16px;
+}
+div.content {
+width : 1000px;
+height : 1000px;
+}
+
+.fontsize{
+    font-size: 11px;
+}
+
+.bootstrap-select .btn-default{
+    font-size: 12px;
+}
+
+.alert {
+   height:50%;    
+}
+
+.img-20 {
+	width:20%;
+	height:20%;
+}
+
+.img-25 {
+	width:25%;
+	height:25%;
+}
+
+.img-30 {
+	width:30%;
+	height:30%;
+}
+
+.img-50 {
+	width:50%;
+	height:50%;
+}
+
+.img-100 {
+	width:100%;
+	height:100%;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+.background-iic  
+{
+	background: url(../images/iic_389x100.jpg);
+/* 	width:748px;  */
+	height:90px;
+}

@@ -1,0 +1,359 @@
+// Log to Bluemix in eu-de
+
+cf l -a https://api.eu-de.bluemix.net -u sebastien.gautier@fr.ibm.com -p j1mm4p6p --skip-ssl-validation -s devde -o sebastien.gautier@fr.ibm.com
+
+// Dump market place information in a local file as cf marketplace takes a long time to achieve
+
+cf marketplace | tee marketplace-de
+
+// START Natural Language Understanding
+
+// Find Natural Language Understanding service name and available plans in local file generated above
+
+grep -i Understanding marketplace-de
+
+// Create Natural Language Understanding service
+
+cf cs natural-language-understanding free nlu0
+
+// Create service key (credential) for Natural Language Understanding service
+
+cf csk nlu0 user0
+
+// Create a file parameter to request Natural Language Understanding service
+
+cat > nlu0.request0.parms.json << EOF
+{
+  "text": "IBM is an American multinational technology company headquartered in Armonk, New York, United States, with operations in over 170 countries.",
+  "features": {
+    "entities": {
+      "emotion": true,
+      "sentiment": true,
+      "limit": 2
+    },
+    "keywords": {
+      "emotion": true,
+      "sentiment": true,
+      "limit": 2
+    }
+  }
+}
+EOF
+
+// Build url to use Natural Language Understanding service
+
+cf service-key nlu0 user0 | awk 'NR >= 2 {print}' | jq -r '.url + "/v1/analyze?version=2017-02-27"'
+
+// Build credential string to  use Natural Language Understanding service
+
+cf service-key nlu0 user0 | awk 'NR >= 2 {print}' | jq -r '.username + ":" + .password'
+
+// Send the request to Natural Language Understanding service using credential, url and parameters file from above and store the result in a file
+
+curl -H "Content-Type: application/json" -u 910df1c8-fdce-41e4-9872-4693c5e14a6a:h215QJnf5PwB -d @nlu0.request0.parms.json https://gateway-fra.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2017-02-27 | jq . | tee nlu0.response0.json
+
+// Parse the file saved above and format it in csv
+
+jq -r '.keywords[] | [(.text, .relevance, .sentiment.label, .relevance, .emotion.sadness, .emotion.joy, .emotion.fear, .emotion.disgust, .emotion.anger) | tostring] | join(";")' nlu0.response0.json
+
+// END Natural Language Understanding
+
+// START Tone Analyzer
+
+// Find Tone Analyzer service name and available plans in local file generated above
+
+grep -i Analyzer marketplace-de
+
+// Create Tone Analyzer service
+
+cf cs tone_analyzer standard ta0
+
+// Create service key (credential) for Tone Analyzer service
+
+cf csk ta0 user0
+
+// Create a file parameter to request Tone Analyzer service
+
+cat > ta0.request0.parms.json << EOF
+{
+  "text": "Team, I know that times are tough! Product sales have been disappointing for the past three quarters. We have a competitive product, but we need to do a better job of selling it!"
+}
+EOF
+
+// Build url to use Tone Analyzer service
+
+cf service-key ta0 user0 | awk 'NR >= 2 {print}' | jq -r '.url + "/v3/tone?version=2017-09-21"'
+
+// Build credential string to  use Tone Analyzer service
+
+cf service-key ta0 user0 | awk 'NR >= 2 {print}' | jq -r '.username + ":" + .password'
+
+// Send the request to Tone Analyzer service using credential, url and parameters file from above and store the result in a file
+
+curl -X POST -u "3692ed53-186a-4b0b-a184-0f96057a6918":"1e5l6lfesbAF" -H "Content-Type: application/json" -d @ta0.request0.parms.json "https://gateway-fra.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21" | jq . | tee ta0.response0.json
+
+// Parse the file saved above and format it in csv
+
+jq -r '.sentences_tone[] | [(.sentence_id, .text, .tones[].score, .tones[].tone_id, .tones[].tone_name) | tostring] | join(";")' ta0.response0.json
+
+// END Tone Analyzer
+
+// START Discovery
+
+// Find Discovery service name and available plans in local file generated above
+
+grep -i Discovery marketplace-de
+
+// Create Discovery service
+
+cf cs discovery lite dsc0
+
+// Create service key (credential) for Discovery service
+
+cf csk dsc0 user0
+
+// Build url to use Discovery service
+
+cf service-key dsc0 user0 | awk 'NR >= 2 {print}' | jq -r '.url + "/v1/environments?version=2017-09-01"'
+
+// Build credential string to  use Discovery service service
+
+cf service-key dsc0 user0 | awk 'NR >= 2 {print}' | jq -r '.username + ":" + .password'
+
+// Create environment for Discovery service
+
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo -H "Content-Type: application/json" -d '{"name": "env0"}' "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments?version=2017-09-01"
+
+// Get environment_id for Discovery service
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments?version=2017-09-01" | jq --arg ENV env0 '.environments[] | select(.name == $ENV) | .environment_id'
+
+// Create configuration for Discovery service with environment_id from above
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/configurations?version=2017-09-01
+
+// Get configuration_id for Discovery service
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/configurations?version=2017-09-01" | jq '.configurations[] | .configuration_id'
+
+// Create collection for Discovery service
+
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577son" -d '{"name": "coll0", "configuration_id":"89cc040d-7c0f-43bf-9872-077f1ddad3ee" , "language": "en_us"}' https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections?version=2017-09-01
+
+// Get collection_id for Discovery service
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections?version=2017-09-01" | jq '.collections[] | .collection_id'
+
+// Add 5 sample documents to collection in Discovery service
+
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo -F "file=@dsc0.document0.html" https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents?version=2017-09-01
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo -F "file=@dsc0.document1.html" https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents?version=2017-09-01
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo -F "file=@dsc0.document2.html" https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents?version=2017-09-01
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo -F "file=@dsc0.document3.html" https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents?version=2017-09-01
+curl -X POST -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo -F "file=@dsc0.document4.pdf" https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents?version=2017-09-01
+
+// Get documents informations from collection in Discovery service
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/query?version=2017-09-01&count=100&return=extracted_metadata" | jq '.results[] | [.id, .extracted_metadata.filename, .extracted_metadata.title, .extracted_metadata.type] | join(";")'
+
+// Get document details by id from collection in Discovery service
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents/b8e37e73-8792-4a99-9631-6f41dac005ce?version=2017-09-01"
+
+// Delete a document by id from collection in Discovery service
+
+curl X DELETE -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/documents/b8e37e73-8792-4a99-9631-6f41dac005ce?version=2017-09-01"
+
+// Getting text - converted in raw text - from one document by id in Discovery service collection and store the result in a file
+
+curl -u fdb689fe-a2ae-4511-a07a-cdbde6577006:5LDFNleYCqmo "https://gateway-fra.watsonplatform.net/discovery/api/v1/environments/1f42ee3f-f965-4016-8507-f6ec9e0304ee/collections/429e0305-3c3d-413f-9395-d353c34d5c8a/query?version=2017-09-01&aggregation=term(enriched_text)&filter=_id:27e8fde7-89ec-4363-ac91-1236b3e782a0" | jq '.results[] | .text' | tee dsc0.converted0.txt
+
+// Create two parameter files for both Tone Analyser and Natural Language Understanding services to submit text converted by Discovery service
+
+jq --arg NEWTEXT "$(cat dsc0.converted0.txt)" '.text = $NEWTEXT ' ta0.request0.parms.json | tee ta0.request1.parms.json
+jq --arg NEWTEXT "$(cat dsc0.converted0.txt)" '.text = $NEWTEXT ' nlu0.request0.parms.json | tee nlu0.request1.parms.json
+
+// END Discovery
+
+// START Visual Recognition
+
+// Log out from bluemix eu-de
+
+cf lo
+
+// Log to Bluemix in eu-gb as Visual Recognition is missing in eu-de marketplace
+
+cf l -a https://api.eu-gb.bluemix.net -u sebastien.gautier@fr.ibm.com -p j1mm4p6p --skip-ssl-validation -s devuk -o sebastien.gautier@fr.ibm.com
+
+// Dump market place information in a local file as cf marketplace takes a long time to achieve
+
+cf marketplace | tee marketplace-gb
+
+// Find Visual Recognition service name and available plans in local file generated above
+
+grep -i Visual marketplace-gb
+
+// Create Visual Recognition service
+
+cf cs watson_vision_combined free vr0
+
+// Create service key (credential) for Visual Recognition service
+
+cf csk vr0 user0
+
+// Build url to use Visual Recognition service image classifier
+
+cf service-key vr0 user0 | awk 'NR>2 {print}' | jq '.url + "/v3/classify?version=2016-05-20&api_key=" + .api_key'
+
+// Send image to classify to Visual Recognition service using url build above and store the result in a file
+
+curl -X POST --form "images_file=@vr0.classify.request0.jpg" "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?version=2016-05-20&api_key=c837b42bc182da29aa29e2647752f88492089ea2" | tee vr0.classify.response0.json
+
+// Parse the file saved above and format it in csv
+
+cat vr0.classify.response0.json | jq -r '.images[] | .classifiers[] | .classes[] | [.class, (.score | tostring), .type_hierarchy] | join(";")'
+
+// Build url to use Visual Recognition service faces detector
+
+cf service-key vr0 user0 | awk 'NR>2 {print}' | jq '.url + "/v3/detect_faces?version=2016-05-20&api_key=" + .api_key'
+
+// Send image to face detect to Visual Recognition service using url build above and store the result in a file
+
+curl -X POST --form "images_file=@vr0.detect_faces.request0.png" "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/detect_faces?version=2016-05-20&api_key=c837b42bc182da29aa29e2647752f88492089ea2" | tee vr0.detect_faces.response0.json
+
+// Parse the file saved above and format it in csv
+
+cat vr0.detect_faces.response0.json | jq '.images[] | .faces[] | [(.age.max, .age.min, .age.score, .gender.gender, .gender.score) | tostring] | join(";")'
+
+// END Visual Recognition
+
+// Log out from bluemix eu-gb
+
+cf lo
+
+// Log to Bluemix in eu-de
+
+cf l -a https://api.eu-de.bluemix.net -u sebastien.gautier@fr.ibm.com -p j1mm4p6p --skip-ssl-validation -s devde -o sebastien.gautier@fr.ibm.com
+
+// START Speech to Text
+
+// Find Speech to Text service name and available plans in local file generated above
+
+grep -i Speech marketplace-de
+
+// Create Speech to Text service
+
+cf cs speech_to_text standard s2t0
+
+// Create service key (credential) for Speech to Text service
+
+cf csk s2t0 user0
+
+// Build url to use Speech to Text service
+
+cf service-key s2t0 user0 | awk 'NR >= 2 {print}' | jq -r '.url + "/v1/recognize"'
+
+// Build credential string to  use Speech to Text service
+
+cf service-key s2t0 user0 | awk 'NR >= 2 {print}' | jq -r '.username + ":" + .password'
+
+// Send the request to Speech to Text service using credential and url from above and store the result in a file
+
+curl -X POST -u 9d02cdeb-0224-4ed0-8b87-b87b8fa1efc9:erkEHetPSHXW --header "Content-Type: audio/flac" --header "Transfer-Encoding: chunked" --data-binary @s2t0.request0.flac "https://stream-fra.watsonplatform.net/speech-to-text/api/v1/recognize" | tee s2t0.response0.json
+
+// Parse the file saved above and save transcription in a file
+
+jq -r '[.results[].alternatives[].transcript] | join(". ")' s2t0.response0.json | tee s2t0.transcript0.txt
+
+// END Speech to Text
+
+// START Language Translator
+
+// Find Language Translator service name and available plans in local file generated above
+
+grep -i Translator marketplace-de
+
+// Create Language Translator service
+
+cf cs language_translator standard lt0
+
+// Create service key (credential) for Language Translator service
+
+cf csk lt0 user0
+
+// Build url to use to use Language Translator service
+
+cf service-key lt0 user0 | awk 'NR >= 2 {print}' | jq -r '.url + "/v2/translate"'
+
+// Build credential string to  use Language Translator service
+
+cf service-key lt0 user0 | awk 'NR >= 2 {print}' | jq -r '.username + ":" + .password'
+
+// Create a file parameter to request Language Translator service
+
+cat > lt0.request.parms.json << EOF
+{
+  "text": "",
+  "source": "en",
+  "target": "fr"
+}
+EOF
+
+// Create a new request parameter file for Language Translator service set with text value from Speech to Text service transcription save above in s2t0.transcript0.txt
+
+jq --arg NEWTEXT "$(cat s2t0.transcript0.txt)" '.text = $NEWTEXT' lt0.request.parms.json | tee lt0.request0.parms.json
+
+// Send the request to Language Translator service and store the result in a file
+
+curl -X POST -u 06a45560-faa3-426a-80ea-b22f36fef937:Cl6PJIf4yA83 -H "Content-Type: application/json" -H "Accept: application/json" -d @lt0.request0.parms.json https://gateway-fra.watsonplatform.net/language-translator/api/v2/translate | tee lt0.response0.json
+
+// Parse the file saved above and save translation in a file
+
+jq -r '.translations[].translation' lt0.response0.json | tee lt0.translation0.json
+
+// END Language Translator
+
+// START Text to Speech
+
+// Find Text to Speech service name and available plans in local file generated above
+
+grep -i Speech marketplace-de
+
+// Create Text to Speech service
+
+cf cs text_to_speech standard t2s0
+
+// Create service key (credential) for Text to Speech service
+
+cf csk t2s0 user0
+
+// Build url to use to use Text to Speech service
+
+cf service-key t2s0 user0 | awk 'NR >= 2 {print}' | jq -r '.url + "/v1/synthesize"'
+
+// Build credential string to  use Text to Speech service
+
+cf service-key t2s0 user0 | awk 'NR >= 2 {print}' | jq -r '.username + ":" + .password'
+
+// Create a file parameter to request Text to Speech service
+
+cat > t2s0.request.parms.json << EOF
+{
+  "text": ""
+}
+EOF
+
+// Create a new request parameter file for Text to Speech service set with text value from Language Translator service translation save above in s2t0.translation0.txt
+
+jq --arg NEWTEXT "$(cat lt0.translation0.json)" '.text = $NEWTEXT' t2s0.request.parms.json | tee t2s0.request0.parms.json
+
+// Send the request to  Text to Speech service and store the result in a file
+
+curl -u 86018038-16ef-47c7-adf4-0c5950822e7e:MRAIoKm4BWql -X POST -H "Content-Type: application/json" -H "Accept: audio/flac" --output t2s0.response0.flac -d "@t2s0.request0.parms.json" "https://stream-fra.watsonplatform.net/text-to-speech/api/v1/synthesize?voice=fr-FR_ReneeVoice"
+
+// END Text to Speech
+
+************************
+
+//jq --arg id "FKSSAMPLINGPLAN_SSAMPLEF" '(.[].relations[] | select(._id == $id).ref) = true' S_SAMPLE_ALIAS.json
+//jq '. | .features.entities.limit = 5' parms.json | sponge parms.json

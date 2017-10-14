@@ -1,0 +1,72 @@
+{
+  "usage": {
+    "text_units": 1,
+    "text_characters": 140,
+    "features": 2
+  },
+  "language": "en",
+  "keywords": [
+    {
+      "text": "American multinational technology",
+      "sentiment": {
+        "score": 0,
+        "label": "neutral"
+      },
+      "relevance": 0.993518,
+      "emotion": {
+        "sadness": 0.085259,
+        "joy": 0.026169,
+        "fear": 0.02454,
+        "disgust": 0.088711,
+        "anger": 0.033078
+      }
+    },
+    {
+      "text": "New York",
+      "sentiment": {
+        "score": 0,
+        "label": "neutral"
+      },
+      "relevance": 0.613816,
+      "emotion": {
+        "sadness": 0.166741,
+        "joy": 0.228903,
+        "fear": 0.057987,
+        "disgust": 0.050965,
+        "anger": 0.054653
+      }
+    }
+  ],
+  "entities": [
+    {
+      "type": "Company",
+      "text": "IBM",
+      "sentiment": {
+        "score": 0,
+        "label": "neutral"
+      },
+      "relevance": 0.33,
+      "emotion": {
+        "sadness": 0.085259,
+        "joy": 0.026169,
+        "fear": 0.02454,
+        "disgust": 0.088711,
+        "anger": 0.033078
+      },
+      "disambiguation": {
+        "subtype": [
+          "SoftwareLicense",
+          "OperatingSystemDeveloper",
+          "ProcessorManufacturer",
+          "SoftwareDeveloper",
+          "CompanyFounder",
+          "ProgrammingLanguageDesigner",
+          "ProgrammingLanguageDeveloper"
+        ],
+        "name": "IBM",
+        "dbpedia_resource": "http://dbpedia.org/resource/IBM"
+      },
+      "count": 1
+    }
+  ]
+}
