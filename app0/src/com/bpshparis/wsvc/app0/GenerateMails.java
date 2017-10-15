@@ -60,7 +60,7 @@ public class GenerateMails {
 				+ "Even Mr. Trump’s adversarial relationship with the truth could not dodge the fact that Iran is in compliance — as determined "
 				+ "repeatedly by the International Atomic Energy Agency, the American intelligence community and our closest European allies. "
 				+ "Mr. Trump has found it galling to certify — not once, but twice — that a deal he described as “the worst ever” and “an embarrassment” is working.");
-		mail.setTextInPicture("iran.jpg");
+		mail.setTip("iran.jpg");
 		mails.add(mail);
 
 		ObjectMapper mapper = new ObjectMapper();

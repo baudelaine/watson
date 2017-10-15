@@ -4,11 +4,11 @@ public class Mail {
 
 	private String subject;
 	private String content;
+	private String url;
 	private String attached;
 	private String picture;
-	private String textInPicture;
 	private String face;
-	private String url;
+	private String tip;
 	private String dId;
 	private Analysis analysis = new Analysis();
 	
@@ -36,11 +36,11 @@ public class Mail {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public String getTextInPicture() {
-		return textInPicture;
+	public String getTip() {
+		return tip;
 	}
-	public void setTextInPicture(String textInPicture) {
-		this.textInPicture = textInPicture;
+	public void setTip(String tip) {
+		this.tip = tip;
 	}
 	public String getFace() {
 		return face;

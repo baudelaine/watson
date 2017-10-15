@@ -123,8 +123,10 @@ public class ContextListener implements ServletContextListener {
     	if(value != null && !value.trim().isEmpty()){
 			Path path = Paths.get(realPath + value);
 			Charset charset = StandardCharsets.UTF_8;
-			vcap_services = new String(Files.readAllBytes(path), charset);
-			System.out.println("VCAP_SERVICES read from " + value + ".");
+			if(Files.exists(path)){
+				vcap_services = new String(Files.readAllBytes(path), charset);
+				System.out.println("VCAP_SERVICES read from " + value + ".");
+			}
     	}
     	else{
     		vcap_services = System.getenv("VCAP_SERVICES");

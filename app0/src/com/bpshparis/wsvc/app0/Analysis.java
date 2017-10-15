@@ -1,56 +1,53 @@
 package com.bpshparis.wsvc.app0;
 
-import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryResponse;
-import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.AnalysisResults;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
-import com.ibm.watson.developer_cloud.visual_recognition.v3.model.DetectedFaces;
-import com.ibm.watson.developer_cloud.visual_recognition.v3.model.RecognizedText;
-import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualClassification;
+import java.util.Map;
 
 public class Analysis {
 
-	private AnalysisResults nlu;
-	private ToneAnalysis ta;
-	private QueryResponse d;
-	private VisualClassification vr;
-	private DetectedFaces fr;
-	private RecognizedText tr;
+	private Map<String, Object> nlu;
+	private Map<String, Object> ta;
+	private Map<String, Object> d;
+	private Map<String, Object> vr;
+	private Map<String, Object> fr;
+	private Map<String, Object> tr;
 	
-	public AnalysisResults getNlu() {
+	public Map<String, Object> getNlu() {
 		return nlu;
 	}
-	public void setNlu(AnalysisResults result) {
-		this.nlu = result;
+	public void setNlu(Map<String, Object> nlu) {
+		this.nlu = nlu;
 	}
-	public ToneAnalysis getTa() {
+	public Map<String, Object> getTa() {
 		return ta;
 	}
-	public void setTa(ToneAnalysis result) {
-		this.ta = result;
+	public void setTa(Map<String, Object> ta) {
+		this.ta = ta;
 	}
-	public QueryResponse getD() {
+	public Map<String, Object> getD() {
 		return d;
 	}
-	public void setD(QueryResponse result) {
-		this.d = result;
+	public void setD(Map<String, Object> d) {
+		this.d = d;
 	}
-	public VisualClassification getVr() {
+	public Map<String, Object> getVr() {
 		return vr;
 	}
-	public void setVr(VisualClassification result) {
-		this.vr = result;
+	public void setVr(Map<String, Object> vr) {
+		this.vr = vr;
 	}
-	public DetectedFaces getFr() {
+	public Map<String, Object> getFr() {
 		return fr;
 	}
-	public void setFr(DetectedFaces result) {
-		this.fr = result;
+	public void setFr(Map<String, Object> fr) {
+		this.fr = fr;
 	}
-	public RecognizedText getTr() {
+	public Map<String, Object> getTr() {
 		return tr;
 	}
-	public void setTr(RecognizedText result) {
-		this.tr = result;
+	public void setTr(Map<String, Object> tr) {
+		this.tr = tr;
 	}
+
+	
 	
 }
