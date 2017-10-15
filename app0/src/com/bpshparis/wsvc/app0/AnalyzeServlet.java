@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -70,7 +69,7 @@ public class AnalyzeServlet extends HttpServlet {
 	String dEnvId;
 	String dCollId;
 	String mailsPath;
-	
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -87,33 +86,33 @@ public class AnalyzeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		List<Mail> mails = new ArrayList<Mail>();
-		
+
 		Map<String, Object> reqParms = new HashMap<String, Object>();
-		Map<String, Object> datas = new HashMap<String, Object>(); 
+		Map<String, Object> datas = new HashMap<String, Object>();
 		datas.put("FROM", this.getServletName());
-		
+
 		try {
-			
+
 			mailsPath = getServletContext().getRealPath("/res/mails");
 
 			d = (Discovery) request.getServletContext().getAttribute("d");
 			dEnvId = (String) request.getServletContext().getAttribute("dEnvId");
 			dCollId = (String) request.getServletContext().getAttribute("dCollId");
-			
+
 			if(ServletFileUpload.isMultipartContent(request)){
-			
+
 				List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
 				for (FileItem item : items) {
 					if (!item.isFormField() && item.getFieldName().equalsIgnoreCase("mails")) {
 						// item is the file (and not a field)
 						mails = Tools.MailsListFromJSON(item.getInputStream());
-						
+
 						for(Mail mail: mails){
 							if(mail.getAttached() != null){
 								datas.put("UPLOAD_" + mail.getAttached() + "_RESPONSE", uploadAttached(mail));
 							}
 						}
-						
+
 						request.getSession().setAttribute("mails", mails);
 						datas.put("MAILS", mails);
 						
@@ -127,42 +126,50 @@ public class AnalyzeServlet extends HttpServlet {
 				}
 			}
 			else {
-				
+
 				reqParms = Tools.fromJSON(request.getInputStream());
 				mails = (List<Mail>) request.getSession().getAttribute("mails");
-				
+
 				datas.put("REQ_PARMS", reqParms);
-				datas.put("MAILS", mails);
-				
+
 				for(Mail mail: mails){
-					
+
 					ta = (ToneAnalyzer) request.getServletContext().getAttribute("ta");
-					datas.put("TONEANALYSIS_SUBJECT_RESPONSE", callTA(mail));
-					
+					callTA(mail);
+//					datas.put("TONEANALYSIS_SUBJECT_RESPONSE", callTA(mail));
+
 					nlu = (NaturalLanguageUnderstanding) request.getServletContext().getAttribute("nlu");
-					datas.put("ANALYSIS_CONTENT_RESPONSE", callNLU(mail));
-					
+					callNLU(mail);
+//					datas.put("ANALYSIS_CONTENT_RESPONSE", callNLU(mail));
+
 					vr = (VisualRecognition) request.getServletContext().getAttribute("vr");
-	
+
 					if(mail.getPicture() != null){
-						datas.put("VISUAL_CLASSIFICATION_" + mail.getPicture() + "_RESPONSE", callVR(mail));
+						callVR(mail);
+//						datas.put("VISUAL_CLASSIFICATION_" + mail.getPicture() + "_RESPONSE", callVR(mail));
 					}
-	
+
 					if(mail.getFace() != null){
-						datas.put("DETECTED_FACE_" + mail.getFace() + "_RESPONSE", callFR(mail));
+						callFR(mail);
+//						datas.put("DETECTED_FACE_" + mail.getFace() + "_RESPONSE", callFR(mail));
 					}
-					
+
 					if(mail.getTextInPicture() != null){
-						datas.put("RECOGNIZED_TEXT_" + mail.getTextInPicture() + "_RESPONSE", callTR(mail));
+						callTR(mail);
+//						datas.put("RECOGNIZED_TEXT_" + mail.getTextInPicture() + "_RESPONSE", callTR(mail));
 					}
-					
+
 					if(mail.getdId() != null){
-						datas.put("QUERY_RESPONSE_" + mail.getAttached() + "_RESPONSE", callD(mail));
+						callD(mail);
+//						datas.put("QUERY_RESPONSE_" + mail.getAttached() + "_RESPONSE", callD(mail));
 					}
 				}
+				
+				datas.put("MAILS", mails);
+
 			}
 		}
-		
+
 		catch(JsonMappingException e){
 			Properties props = (Properties) getServletContext().getAttribute("props");
 			datas.put("UPLOAD_USAGE", props.get("UPLOAD_USAGE"));
@@ -175,7 +182,7 @@ public class AnalyzeServlet extends HttpServlet {
 //			datas.put("EXAMPLE", ( (String) props.get("EXAMPLE")).replaceAll("\\\\", ""));
 
 		}
-		
+
 		catch (Exception e) {
 			// TODO Auto-generated catch block
 			datas.put("EXCEPTION", e.getClass().getName());
@@ -184,13 +191,13 @@ public class AnalyzeServlet extends HttpServlet {
 			e.printStackTrace(new PrintWriter(sw));
 //			datas.put("STACKTRACE", sw.toString());
 		}
-		
+
 		finally{
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(Tools.toJSON(datas));
 		}
-		
+
 	}
 
 	/**
@@ -200,19 +207,19 @@ public class AnalyzeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
+
 	protected CreateDocumentResponse uploadAttached(Mail mail) throws ArrayIndexOutOfBoundsException, JsonParseException, JsonMappingException, IOException{
-		
-		String file = mailsPath + "/" + mail.getAttached(); 
+
+		String file = mailsPath + "/" + mail.getAttached();
 		InputStream in = new BufferedInputStream(new FileInputStream(file));
 		new HashMap<String, String>();
-		
+
 		String mt = "";
-		int i = mail.getAttached().split("\\.").length; 
+		int i = mail.getAttached().split("\\.").length;
 		String ext = mail.getAttached().split("\\.")[i - 1];
 
 		switch(ext){
-		
+
 			case "doc":
 				mt = HttpMediaType.APPLICATION_MS_WORD;
 				break;
@@ -224,138 +231,138 @@ public class AnalyzeServlet extends HttpServlet {
 			default:
 				mt = HttpMediaType.TEXT_PLAIN;
 				break;
-			
+
 		}
-		
+
 		CreateDocumentRequest.Builder builder = new CreateDocumentRequest.Builder(dEnvId, dCollId)
-				.file(in, mt);		
+				.file(in, mt);
 		CreateDocumentResponse result = d.createDocument(builder.build()).execute();
-		
+
 		ObjectMapper mapper = new ObjectMapper();
-    	
+
     	Map<String, String> resultMap = mapper.readValue(result.toString(), new TypeReference<Map<String, String>>(){});
-    	
+
 		System.out.println("resultMap=" + resultMap);
-    	
+
     	mail.setdId(resultMap.get("document_id"));
-    	
+
     	return result;
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	protected String listAttachedColl() throws JsonParseException, JsonMappingException, IOException{
-		
+
 		List<String> fields = new ArrayList<String>();
 		fields.add("extracted_metadata");
-    	
+
     	QueryRequest.Builder queryBuilder = new QueryRequest.Builder(dEnvId, dCollId)
     			.count(100)
     			.returnFields(fields);
-    	
+
     	QueryResponse queryResponse = d.query(queryBuilder.build()).execute();
-    	
+
     	System.out.println("queryResponse=" + queryResponse);
-    	
+
     	ObjectMapper mapper = new ObjectMapper();
-    	
+
     	Map<String, Object> docMap = mapper.readValue(queryResponse.toString(), new TypeReference<Map<String, Object>>(){});
 
 		List<Map<String, String>> docs = (List<Map<String, String>>) docMap.get("results");
-		
+
 		List<String> docIds = new ArrayList<String>();
 
 		for(Map<String, String> doc: docs){
 			docIds.add(doc.get("id"));
 		}
-		
+
 		System.out.println("docIds=" + docIds);
-		
-		return queryResponse.toString();		
-		
+
+		return queryResponse.toString();
+
 	}
-	
+
 	protected VisualClassification callVR(Mail mail) throws IOException{
-		
+
 		Path path = Paths.get(mailsPath + "/" + mail.getPicture());
 		byte[] data = Files.readAllBytes(path);
-		
+
 		ClassifyImagesOptions classifyImagesOptions = new ClassifyImagesOptions.Builder()
 				.images(data, mail.getPicture())
 				.build();
 		VisualClassification result = vr.classify(classifyImagesOptions).execute();
-		
-		mail.setVr(result);
+
+		mail.getAnalysis().setVr(result);
 
 		return result;
 	}
 
 	protected DetectedFaces callFR(Mail mail) throws IOException{
-		
+
 		Path path = Paths.get(mailsPath + "/" + mail.getFace());
 		byte[] data = Files.readAllBytes(path);
-		
+
 		new GsonBuilder().setPrettyPrinting().create();
-		
+
 		VisualRecognitionOptions options = new VisualRecognitionOptions.Builder()
 				.images(data, mail.getFace())
 				.build();
 
 		DetectedFaces result = vr.detectFaces(options).execute();
-		
-		mail.setFr(result);
+
+		mail.getAnalysis().setFr(result);
 
 		return result;
 	}
-	
+
 	protected RecognizedText callTR(Mail mail) throws IOException{
-		
+
 		Path path = Paths.get(mailsPath + "/" + mail.getTextInPicture());
 		byte[] data = Files.readAllBytes(path);
-		
+
 //		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		
+
 		VisualRecognitionOptions options = new VisualRecognitionOptions.Builder()
 				.images(data, mail.getTextInPicture())
 				.build();
 
 		RecognizedText result = vr.recognizeText(options).execute();
-		
-		mail.setTr(result);
+
+		mail.getAnalysis().setTr(result);
 
 		return result;
 	}
-	
-	
+
+
 	protected QueryResponse callD(Mail mail){
 
 		List<String> fields = new ArrayList<String>();
 		fields.add("extracted_metadata");
-    	
+
     	QueryRequest.Builder queryBuilder = new QueryRequest.Builder(dEnvId, dCollId)
     			.aggregation("term(enriched_text)")
     			.filter("_id:" + mail.getdId());
-    	
+
     	QueryResponse result = d.query(queryBuilder.build()).execute();
 
-    	mail.setD(result);
-		
+    	mail.getAnalysis().setD(result);
+
 		return result;
 	}
-	
+
 	protected ToneAnalysis callTA(Mail mail){
 
 		ToneOptions options = new ToneOptions.Builder()
 			.addTone(Tone.EMOTION).build();
-		
+
 		ToneAnalysis result = ta.getTone(mail.getSubject(), options).execute();
-		mail.setTa(result);
-			  
+		mail.getAnalysis().setTa(result);
+
 		return result;
 	}
-	
+
 	protected AnalysisResults callNLU(Mail mail){
-		
+
 		EntitiesOptions entitiesOptions = new EntitiesOptions.Builder()
 			.emotion(true)
 			.sentiment(true)
@@ -367,7 +374,7 @@ public class AnalyzeServlet extends HttpServlet {
 			.sentiment(true)
 			.limit(2)
 			.build();
-		
+
 		CategoriesOptions categories = new CategoriesOptions();
 
 		Features features = new Features.Builder()
@@ -380,13 +387,13 @@ public class AnalyzeServlet extends HttpServlet {
 			.features(features)
 			.text(mail.getContent())
 			.build();
-		
+
 		AnalysisResults result = nlu
 			.analyze(parameters)
 			.execute();
 
-		mail.setNlu(result);
-		
+		mail.getAnalysis().setNlu(result);
+
 		return result;
 	}
 
