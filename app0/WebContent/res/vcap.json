@@ -2,9 +2,9 @@
   "discovery": [
    {
     "credentials": {
-     "password": "u6hfKzSGPMpd",
+     "password": "ahvV1goM6eWp",
      "url": "https://gateway-fra.watsonplatform.net/discovery/api",
-     "username": "9c3e22ed-effd-4643-82ba-beac1b499f92"
+     "username": "6a3cc9b0-2912-400c-8753-18a65ddbc4e0"
     },
     "label": "discovery",
     "name": "dsc0",
@@ -23,9 +23,9 @@
   "natural-language-understanding": [
    {
     "credentials": {
-     "password": "Z8NBhCAbv4XV",
+     "password": "HTzRYXSuC1JG",
      "url": "https://gateway-fra.watsonplatform.net/natural-language-understanding/api",
-     "username": "f1a257b5-bc19-46ff-9ee9-70b236a3239c"
+     "username": "08dddd68-9b54-4ed0-a9e6-c7ead6481d2a"
     },
     "label": "natural-language-understanding",
     "name": "nlu0",
@@ -44,9 +44,9 @@
   "tone_analyzer": [
    {
     "credentials": {
-     "password": "sHaEtn4Okffe",
+     "password": "vPHk8QeAi7lc",
      "url": "https://gateway-fra.watsonplatform.net/tone-analyzer/api",
-     "username": "495fa903-6c22-4805-85a6-425c644eb5d9"
+     "username": "82fa23d8-d737-45d7-ab82-3787fdae8c40"
     },
     "label": "tone_analyzer",
     "name": "ta0",
@@ -61,25 +61,5 @@
     ],
     "volume_mounts": []
    }
-  ],
-  "watson_vision_combined": [
-   {
-    "credentials": {
-     "api_key": "c837b42bc182da29aa29e2647752f88492089ea2",
-     "note": "This is your previous free key. If you want a different one, please wait 24 hours after unbinding the key and try again.",
-     "url": "https://gateway-a.watsonplatform.net/visual-recognition/api"
-    },
-    "label": "watson_vision_combined",
-    "name": "vr0",
-    "plan": "free",
-    "provider": null,
-    "syslog_drain_url": null,
-    "tags": [
-     "watson",
-     "ibm_created",
-     "ibm_dedicated_public"
-    ],
-    "volume_mounts": []
-   }
   ]
-}
+ }

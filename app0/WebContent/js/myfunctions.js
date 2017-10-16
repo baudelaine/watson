@@ -313,7 +313,7 @@ mailsCols.push({field:"index", title: "index", formatter: "indexFormatter", sort
 // mailsCols.push({field:"subject", title: "Subject", formatter: "subjectFormatter", sortable: true});
 mailsCols.push({field:"subject", title: "Subject", footerFormatter: "subjectFormatter", editable: {type: "textarea", rows: 4}, sortable: true});
 mailsCols.push({field:"content", title: "Content", editable: {type: "textarea", rows: 8}, sortable: true});
-mailsCols.push({field:"url", title: "Url", editable: {type: "textarea", rows: 4}, sortable: true});
+// mailsCols.push({field:"url", title: "Url", editable: {type: "textarea", rows: 4}, sortable: true});
 mailsCols.push({field:"attached", title: '<i class="glyphicon glyphicon-paperclip"></i>', align: "center"});
 mailsCols.push({field:"picture", title: '<i class="glyphicon glyphicon-picture"></i>', align: "center"});
 mailsCols.push({field:"face", title: '<i class="glyphicon glyphicon-user"></i>', align: "center"});
@@ -408,8 +408,8 @@ function wordFormatter(value, row, index) {
 }
 
 $MailsTab.on('shown.bs.tab', function(e) {
-  buildMailsTable($datasTable, qsCols, datas, true);
-  buildMailsTable($datasTable, qsCols, datas, true);
+  buildMailsTable($datasTable, qsCols, datas, false);
+  $datasTable.bootstrapTable("collapseAllRows");
 });
 $TATab.on('shown.bs.tab', function(e) {
   buildMailsTable($datasTable, qsCols, datas, true);
@@ -569,6 +569,7 @@ function GetMails(){
     contentType: false,   // tell jQuery not to set contentType
 
     success: function(data) {
+      console.log(data);
       $.each(data, function(i, obj){
         if(i == "MAILS"){
           console.log(obj);
